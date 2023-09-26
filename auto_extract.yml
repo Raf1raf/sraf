@@ -1,0 +1,19 @@
+name: Auto Extract
+
+on:
+  push:
+    branches:
+      - main  # يمكنك تغيير اسم الفرع إذا لزم الأمر
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Extract ZIP
+      run: |
+        unzip -q 3.zip  # اسم الملف المضغوط هنا
+        ls -la  # اختبار: عرض قائمة الملفات بعد الفك
